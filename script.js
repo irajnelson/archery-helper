@@ -1,14 +1,19 @@
 const image1 = document.getElementById("target1");
 const image2 = document.getElementById("target2");
 
+const dotOffset = 5;
+
 const dot1 = document.getElementById("dot1");
 const dots_fired = [
     document.getElementById("dot2"),
     document.getElementById("dot3"),
     document.getElementById("dot4")
 ];
+const testDot = document.getElementById("testDot");
 
 const previousButton = document.getElementById("previousButton");
+const nextButton = document.getElementById("nextButton");
+const doneButton = document.getElementById("doneButton");
 
 let arrow_aimed = [];
 let arrows_fired = [];
@@ -17,29 +22,82 @@ let currentArrowIndex = 0;
 function getMousePos(e, image) {
     // console.log("Client X:"+e.clientX);
     // console.log("Client Y:"+e.clientY);
-    return [e.clientX-image.x, e.clientY-image.x];
+    return [e.clientX-image.x, e.clientY-image.y];
 }
 
 
 image1.onclick = function(e){
+    console.log("image 1: " +image2.x + " " + image2.y);
     arrow_aimed[0] = getMousePos(e, image1);
-    console.log(arrow_aimed);
-    dot1.style.left = arrow_aimed[0][0]+"px";
-    dot1.style.top = arrow_aimed[0][1]+"px";
+    dot1.style.left = (arrow_aimed[0][0] + image1.x - dotOffset) + "px";
+    dot1.style.top = (arrow_aimed[0][1] + image1.y - dotOffset) + "px";
+    
 };
 
 image2.onclick = function(e){
-    arrows_fired.push(getMousePos(e, image2));
-    console.log(arrows_fired);
-    dots_fired[currentArrowIndex].style.left = arrow_aimed[0][0]+"px";
-    dots[0].style.top = arrow_aimed[0][1]+"px";
+    console.log("image 2: " +image2.x + " " + image2.y);
+    arrows_fired[currentArrowIndex] = getMousePos(e, image2);
+    console.log(arrows_fired[currentArrowIndex][0]);
+    console.log(arrows_fired[currentArrowIndex][1]);
+    dots_fired[currentArrowIndex].style.left = (arrows_fired[currentArrowIndex][0] + image2.x - dotOffset) + "px";
+    dots_fired[currentArrowIndex].style.top = (arrows_fired[currentArrowIndex][1] + image2.y - dotOffset) + "px";
 };
 
 previousButton.onclick = function(){
     if(currentArrowIndex == 0){
         currentArrowIndex = 2
+        dots_fired[0].style.backgroundColor = "green";
     } else {
-        currentArrowIndex--;
+        dots_fired[currentArrowIndex--].style.backgroundColor = "green";
     }
+    dots_fired[currentArrowIndex].style.backgroundColor = "blue";
     console.log(currentArrowIndex);
+}
+
+nextButton.onclick = function(){
+    if(currentArrowIndex == 2){
+        currentArrowIndex = 0
+        dots_fired[2].style.backgroundColor = "green";
+    } else {
+        dots_fired[currentArrowIndex++].style.backgroundColor = "green";
+    }
+    dots_fired[currentArrowIndex].style.backgroundColor = "blue";
+    console.log(currentArrowIndex);
+}
+
+
+doneButton.onclick = function(){
+    var allPlaced = true;
+    if(arrow_aimed[0][0] == 10000) {
+        allPlaced = false;
+    }
+    for(var i = 0; i<3; i++){
+        if(arrows_fired[i][0] == 10000){
+            allPlaced = false;
+        }
+    }
+
+    if(allPlaced){
+        var averageX = 0;
+        var averageY = 0;
+
+        for(i = 0; i<3; i++){
+            averageX+=arrows_fired[i][0];
+            averageY+=arrows_fired[i][1];
+        }
+
+        averageX/=3;
+        averageY/=3;
+
+        let aimOffsetX = 200-averageX;
+        let aimOffsetY = 200-averageY;
+
+        testDot.style.left = (arrow_aimed[0][0] + aimOffsetX + image1.x - dotOffset) + "px";
+        testDot.style.top = (arrow_aimed[0][1] + aimOffsetY + image1.y - dotOffset) + "px";
+        console.log(testDot.style.left + " E " + testDot.style.top);
+        console.log(aimOffsetX + " A " + aimOffsetY);
+
+    } else {
+        alert("OOPSIE DAISY YOU DDINT PLACE THEM ALL? ? ? ?? ");
+    }
 }
