@@ -1,0 +1,70 @@
+html, body {height: 100%; overflow: hidden}
+
+@layer{
+    #dot1 {
+        position:absolute;
+        width: 10px;
+        height: 10px;
+        background-color: green;
+        border-radius: 50%; 
+        display: inline-block; 
+        top: 10000px;
+        left: 10000px;
+        
+    }
+    #dot2 {
+        position:absolute;
+        width: 10px;
+        height: 10px;
+        background-color: green;
+        border-radius: 50%; 
+        display: inline-block; 
+        top: 10000px;
+        left: 10000px;
+        
+    }
+    #dot3 {
+        position:absolute;
+        width: 10px;
+        height: 10px;
+        background-color: green;
+        border-radius: 50%; 
+        display: inline-block; 
+        top: 10000px;
+        left: 10000px;
+        
+    }
+    #dot4 {
+        position:absolute;
+        width: 10px;
+        height: 10px;
+        background-color: green;
+        border-radius: 50%; 
+        display: inline-block; 
+        top: 10000px;
+        left: 10000px;
+        
+    }
+    #testDot {
+        position:absolute;
+        width: 10px;
+        height: 10px;
+        background-color: gray;
+        border-radius: 50%; 
+        display: inline-block; 
+        top: 10000px;
+        left: 10000px;
+        
+    }
+}
+@layer{
+    div {
+        display:inline-block;
+    }
+    img {
+        width:400px;
+        height:400px;
+
+        border: 1px solid #555;
+    }
+}
