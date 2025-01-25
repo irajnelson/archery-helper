@@ -1,0 +1,38 @@
+html, body {height: 100%; overflow: hidden;}
+
+#dot {
+    position:absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #2DFF03;
+    border-radius: 50%; 
+    display: inline-block; 
+}
+
+img {
+    width:400px;
+    height:400px;
+
+    border: 1px solid #555;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom:40px;
+}
+h1{
+    font-size:40px;
+    text-align:center;
+    font-family: Kode Mono, monospace;
+}
+button{
+    background-color: #10255C;
+    color:white;
+    margin:15px;
+    border-radius: 15px;
+    padding:1%;
+    display:block;
+    margin-left: auto;
+    margin-right:auto;
+    font-family: Kode Mono, monospace;
+    font-size:20px;
+}
