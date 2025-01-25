@@ -1,0 +1,55 @@
+@layer{
+    #dot1 {
+        position:absolute;
+        width: 10px;
+        height: 10px;
+        background-color: green;
+        border-radius: 50%; 
+        display: inline-block; 
+        top: 10000px;
+        left: 10000px;
+        
+    }
+    #dot2 {
+        position:absolute;
+        width: 10px;
+        height: 10px;
+        background-color: green;
+        border-radius: 50%; 
+        display: inline-block; 
+        top: 10000px;
+        left: 10000px;
+        
+    }
+    #dot3 {
+        position:absolute;
+        width: 10px;
+        height: 10px;
+        background-color: green;
+        border-radius: 50%; 
+        display: inline-block; 
+        top: 10000px;
+        left: 10000px;
+        
+    }
+    #dot4 {
+        position:absolute;
+        width: 10px;
+        height: 10px;
+        background-color: green;
+        border-radius: 50%; 
+        display: inline-block; 
+        top: 10000px;
+        left: 10000px;
+        
+    }
+}
+@layer{
+    img {
+        width:500px;
+        height:500px;
+
+        border: 1px solid #555;
+    }
+}
+
