@@ -81,7 +81,7 @@ const dots_fired = [
 ];
 const testDot = document.getElementById("testDot");
 
-// const previousButton = document.getElementById("previousButton");
+const previousButton = document.getElementById("last-arrow");
 const nextButton = document.getElementById("next-arrow");
 const doneButton = document.getElementById("hit_spots");
 
@@ -117,17 +117,17 @@ image2.onclick = function(e){
     dots_fired[currentArrowIndex].style.top = (arrows_fired[currentArrowIndex][1] + image2.y - dotOffset) + "px";
 };
 
-// previousButton.onclick = function(){
-//     if(currentArrowIndex == 0){
-//         currentArrowIndex = 2
-//         dots_fired[0].style.backgroundColor = "green";
-//     } else {
-//         dots_fired[currentArrowIndex--].style.backgroundColor = "green";
-//     }
-//     dots_fired[currentArrowIndex].style.backgroundColor = "blue";
-//     console.log(currentArrowIndex);
-//     arrowCounter.innerHTML = currentArrowIndex+1;
-// }
+previousButton.onclick = function(){
+    if(currentArrowIndex == 0){
+        currentArrowIndex = 2
+        dots_fired[0].style.backgroundColor = "green";
+    } else {
+        dots_fired[currentArrowIndex--].style.backgroundColor = "green";
+    }
+    dots_fired[currentArrowIndex].style.backgroundColor = "blue";
+    console.log(currentArrowIndex);
+    arrowCounter.innerHTML = currentArrowIndex+1;
+}
 
 nextButton.onclick = function(){
     console.log("Button clck");
