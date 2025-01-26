@@ -73,7 +73,7 @@ const middleObject = document.getElementById("left");
 const middleOffset = middleObject.offsetWidth;
 console.log("offet2:"+middleOffset);
 
-// Differene between the size of target and the margin in its container
+// Difference between the size of target and the margin in its container
 const resultOffset = 50;
 
 const dotOffset = 5;
@@ -170,6 +170,8 @@ doneButton.onclick = function(){
             averageY+=arrows_fired[i][1];
         }
 
+        console.log("Score:"+scoreArrows(arrows_fired));
+
         averageX/=3;
         averageY/=3;
 
@@ -184,6 +186,22 @@ doneButton.onclick = function(){
     } else {
         alert("Oops, you didn't place all the arrows!");
     }
+}
+
+function scoreArrows(arrows){
+    var score = [0,0,0];
+    var radius = [0,0,0];
+    for(var i = 0; i<3; i++){
+        var x = arrows[i][0]-200;
+        var y = arrows[i][1]-200;
+
+        radius[i] = Math.sqrt(x*x + y*y);
+        
+    }
+    for(var i = 0; i<3; i++){
+        score[i] = 10 - Math.floor(radius[i]/17);
+    }
+    return score;
 }
 
 },{"../sessions":3,"fs":1}],3:[function(require,module,exports){
