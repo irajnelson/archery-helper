@@ -72,8 +72,8 @@
     img
     {
         margin-top: -3%;
-        width: 75%;
-        height: 75%;
+        width: 400px;
+        height: 400px;
     }
 
     #left-title
@@ -145,7 +145,12 @@
         text-align: center;
         margin: 2% 0%;
     }
-
+    #last-arrow
+    {
+        border-width: 0px !important;
+        padding: 0px !important;
+        background-color: #10255C;
+    }
     #next-arrow
     {
         border-width: 0px !important;
@@ -226,7 +231,7 @@
         position:absolute;
         width: 10px;
         height: 10px;
-        background-color: orange;
+        background-color: blue;
         border-radius: 50%; 
         display: inline-block; 
         top: 10000px;
@@ -259,7 +264,7 @@
         position:absolute;
         width: 10px;
         height: 10px;
-        background-color: gray;
+        background-color: #2DFF03;
         border-radius: 50%; 
         display: inline-block; 
         top: 10000px;
