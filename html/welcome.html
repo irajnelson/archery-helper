@@ -5,32 +5,46 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="../css/welcome.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
+    
+
+    <title>Welcome to AimBird</title>
 </head>
 <body>
     <div id="archery-banner">
-        <h2 id="archery-banner-words">>> ARCHERY APP</h1>
+        <button onclick = "window.location.href='welcome.html';" type="button" class = "header-button">
+            <h1 id="archery-banner-words">>> AIMBIRD</h1>
+        </button>
     </div>
+
     <div id="skewed-box"></div>
+
     <div id="main-body">
         <div id="left-side">
-            <h1>WELCOME</h1>
-            <section id="scores">
-                <h3>average score:</h3>
-                <h3>best score:</h3>
-            </section>
-            <section id="links">
-                <a href="home.html">>> go to home page</a>
-                <a href="history.html">>> go to history page</a>
-            </section>
+            <h2>WELCOME</h2>
+            <div id="left-side-content">
+                <p id="scores">
+                    average score: <br />
+                    best score: <br />
+                </p>
+                <div id="links">
+                    <a href="home.html">>> start session</a>
+                    <a href="history.html">>> view history</a>
+                </div>
+            </div>
         </div>
+
         <div id="right-side">
-            <h4>BEST SCORE</h4>
-            <img id="best-target" src="../assets/target.svg" alt="Target">
+            <div id = "right-title">
+                BEST SCORE <br />
+                data record
+            </div>
+            <div id = "target">
+                <img id="best-target" src="../assets/target.svg" alt="Target">
+            </div>
         </div>    
     </div>
     
