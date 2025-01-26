@@ -12,83 +12,119 @@ body, html {
 }
 
 @layer {
-    #main-body {
+    /* #main-body {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         width: 100%;
         z-index: 1;
-    }
+    } */
     
-    #archery-banner {
+    #archery-banner
+    {
         display: flex;
         background-color: whitesmoke;
         vertical-align: top;
         position: fixed;
+        top: 0px !important;
         width: 100%;
         z-index:1;
-        height: 60px;
-        padding-left: 10px;
+        height: 10%;
+        padding-left: 1.5%;
         align-items: center;
     }
     
-    #archery-banner-words {
-        margin: 0px;
+    #archery-banner-words
+    {
+        font-family: "Kode Mono", monospace;
         color: #10255C;
-    }
-    
-    #left-side {
-        display: flex;
-        flex-direction: column;
-        width: 50%;
-        align-items: center;
     }
 
-    #right-side {
-        display: flex;
-        flex-direction: column;
-        width: 45%;
-        align-items: center;
+    .header-button
+    {
+        background: whitesmoke;
+        border-width: 0px !important;
     }
     
-    h1 {
+    #left-side
+    {
+        height: 100vh;
+        position: absolute;
+        /* left: 1.5%; */
+        padding-left: 7%;
+        width: 50%; /*from the total screen*/
+    }
+
+    h2
+    {
         color: #10255C;
-        font-size: 90px;
+        font-size: 800%;
         margin-top: 100px;
         margin-bottom: 30px;
-        margin-left: 80px;
+        /* margin-left: 10%; */
         align-self: flex-start;
     }
+
+    #left-side-content
+    {
+        margin-left: 5% !important;
+        /* padding: 0% !important; */
+    }
+
+    #scores
+    {
+        color:whitesmoke;
+        font-family: "Montserrat", serif;
+        font-size: 200%;
+    }
     
-    #links, #scores {
+    #links
+    {
         display: flex;
         flex-direction: column;
         align-self: flex-start;
-        margin-left: 80px;
-        margin-bottom: 20px;
+        margin-top: 10%;
+        /* margin-left: 80px;
+        margin-bottom: 20px; */
     }
     
-    a {
+    #right-side
+    {
+        position: absolute;
+        left: 50%;
+        width: 50%; 
+    }
+
+    #right-title
+    {
+        color: whitesmoke;
+        font-family: "Kode Mono", serif;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 400;
+
+        text-align: center;
+        margin-top: 17%;
+    }
+
+    #target
+    {
+        display: flex;
+        justify-content: center;
+        /* margin-left: auto;
+        margin-right: auto; */
+    }
+    img
+    {
+        width: 400px;
+        height: 400px;
+    }
+
+    a
+    {
         color: #10255C;
         text-decoration: none;
         padding: 5px;
-    }
-    
-    
-    h4 {
-        color: whitesmoke;
-        font-size: 40px;
-        margin-top: 120px;
-        margin-bottom: 5px;
-    }
-
-    h3 {
-        color:whitesmoke;
-    }
-
-    img {
-        width: 400px;
-        height: 400px;
     }
     
 }
@@ -98,11 +134,12 @@ body, html {
         background-color: #10255C;
         position: absolute;
         top: -150px;
-        width: 500px;
+        width: 1000px;
         height: 2500px;
-        left: 700px;
+        left: 600px;
         padding: 100px;
         transform: skew(10deg, -65deg);
+        z-index: 0;
     }
     
 }

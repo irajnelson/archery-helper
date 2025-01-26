@@ -1,4 +1,115 @@
-html, body {height: 100%; overflow: hidden}
+/* 
+
 img{
     width:100px;
+} */
+
+body, html {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100%; 
+    width: 100%;
+    overflow: hidden;
+    background-color: #8FDFFA;
+    padding: 0px;
+    margin: 0px;
+    font-family: Kode Mono, monospace;
+}
+
+@layer {
+    /* #main-body {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        z-index: 1;
+    } */
+    
+    #archery-banner
+    {
+        display: flex;
+        background-color: whitesmoke;
+        vertical-align: top;
+        position: fixed;
+        top: 0px !important;
+        width: 100%;
+        z-index:1;
+        height: 10%;
+        padding-left: 1.5%;
+        align-items: center;
+    }
+    
+    #archery-banner-words
+    {
+        font-family: "Kode Mono", monospace;
+        color: #10255C;
+    }
+
+    /* .header-button
+    {
+        background: whitesmoke;
+        border-width: 0px !important;
+    } */
+    
+    #left
+    {
+        position: absolute;
+        /* left: 1.5%; */
+        padding-left: 5.5%;
+        margin-top: 7%;
+        /* width: 50%; from the total screen */
+    }
+
+    h2
+    {
+        
+        color: #10255C;
+        font-size: 700%;
+        margin: 1% 0%;
+    }
+    
+    /* #right
+    {
+        position: absolute;
+        left: 50%;
+        width: 50%; 
+    } */
+
+    #caption
+    {
+        color: #10255C;
+        font-family: "Montserrat", serif;
+        font-size: 180%;
+        margin-top: 1%;
+        margin-left: 3%;
+
+        position: absolute;
+        width: 60%;
+    }
+
+    #links
+    {
+        color: #10255C;
+        font-family: "Kode Mono", serif;
+        font-size: 100%;
+        margin-top: 10%;
+    }
+
+}
+
+@layer {
+    #skewed-box {
+        background-color: #10255C;
+        position: absolute;
+        top: -650px;
+        width: 1000px;
+        height: 2500px;
+        left: 71%;
+        padding: 100px;
+        transform: skew(10deg, -65deg);
+        transform: rotate(150deg);
+        z-index: 0;
+    }
+    
 }

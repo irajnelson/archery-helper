@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+    <link rel="stylesheet" href="../css/history.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1> History </h1>
+<header>
+    <nav>
+        <ul>
+            <li><a href = "home.html"> Home </a></li>
+            <li><a href = "stats.html"> Stats </a></li>
+        </ul>
+    </nav>
+</header>
+<table id="table">
+    <tr>
+        <th>Date</th>
+        <th># of Rounds</th>
+        <th>Avg. Score</th>
+    </tr>
+    <tr>
+        <td><a href="scoretracker.html?date=2024-01-01">2024-01-01</a></td>
+        <td>xx</td>
+        <td>xx</td>
+    </tr>
+    <tr>
+        <td>MM/DD/YYYY</td>
+        <td>xx</td>
+        <td>xx</td>
+    </tr>
+    <tr>
+        <td>MM/DD/YYYY</td>
+        <td>xx</td>
+        <td>xx</td>
+    </tr>
+    <tr>
+        <td>MM/DD/YYYY</td>
+        <td>xx</td>
+        <td>xx</td>
+    </tr>
+    <tr>
+        <td>MM/DD/YYYY</td>
+        <td>xx</td>
+        <td>xx</td>
+    </tr>
+    <tr>
+        <td>MM/DD/YYYY</td>
+        <td>xx</td>
+        <td>xx</td>
+    </tr>
+    <tr>
+        <td>MM/DD/YYYY</td>
+        <td>xx</td>
+        <td>xx</td>
+    </tr>
+    <tr>
+        <td>MM/DD/YYYY</td>
+        <td>xx</td>
+        <td>xx</td>
+    </tr>
+    <tr>
+        <td>MM/DD/YYYY</td>
+        <td>xx</td>
+        <td>xx</td>
+    </tr>
+</table>
+
+<script src="../js/browserify_modified/history.js"></script>
+</body>
+</html>
+
+<!-- Working way to add to tables
+<script>
+    console.log("EEE");
+    var table = document.getElementById("table");
+    table.onclick = function(e){
+        // Create a new row
+    const newRow = document.createElement("tr");
+    
+    // Create cells and add content
+    const cell1 = document.createElement("td");
+    cell1.innerHTML = "New Cell 1";
+    
+    const cell2 = document.createElement("td");
+    cell2.innerHTML = "New Cell 2";
+    
+    // Add cells to the row
+    newRow.appendChild(cell1);
+    newRow.appendChild(cell2);
+    
+    // Add the row to the table
+    table.appendChild(newRow);
+    }
+    </script> -->

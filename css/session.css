@@ -49,7 +49,6 @@
         position: absolute;
         left: 14%;
         width: 43%; /*from the total screen*/
-        height: 100vh;
         background: #8FDFFA;
         /* z-index: 2 !important; */
     }
