@@ -1,5 +1,67 @@
+const fs = require('fs');
+const sessions = require("../sessions");
+
+class Round{
+    constructor(score, aimSpot, arrowLocations){
+        this.score = score;
+        this.aimSpot = aimSpot;
+        this.arrowLocations = arrowLocations;
+    }
+}
+class Session{
+    constructor(rounds){
+        this.sessionNumber = -1;
+        this.rounds = rounds;
+    }
+
+    getRounds() {
+        return this.rounds;
+    }
+
+    addRound(round) {
+        this.rounds.push(round);
+    }
+
+    getSessionNumber() {
+        return this.sessionNumber;
+    }
+
+    setSessionNumber(newSessionNumber) {
+        this.sessionNumber = newSessionNumber;
+    }
+}
+
+function addRound(currentSession, score, aimSpot, arrowLocations) {
+    currentSession.push(new Round(score, aimSpot, arrowLocations));
+}
+
+function addSession(currentSession, lastRound) {
+    currentSession.push(lastRound);
+    sessions.push(currentSession);
+    fs.writeFileSync("./sessions.json", JSON.stringify(sessions), err => {
+        // Checking for errors 
+            if (err) throw err;
+
+        // Success 
+            console.log("Done writing");
+    });
+    currentSession = new Session([]);
+}
+
+// class SessionList{
+//     constructor(date, numberOfRounds, avgScore, sessionData){
+//         this.date = date;
+//         this.numberOfRounds = numberOfRounds;
+//         this.avgScore = avgScore;
+//         this.sessionData = sessionData;
+//     }
+// }
+
 const image1 = document.getElementById("target1");
 const image2 = document.getElementById("target2");
+
+let currentSession = new Session([]);
+
 
 const dotOffset = 5;
 
