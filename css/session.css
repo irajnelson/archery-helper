@@ -73,8 +73,8 @@
     img
     {
         margin-top: -3%;
-        width: 75%;
-        height: 75%;
+        width: 400px;
+        height: 400px;
     }
 
     #left-title
@@ -265,7 +265,7 @@
         position:absolute;
         width: 10px;
         height: 10px;
-        background-color: gray;
+        background-color: #2DFF03;
         border-radius: 50%; 
         display: inline-block; 
         top: 10000px;
