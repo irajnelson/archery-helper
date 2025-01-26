@@ -2,10 +2,14 @@
 <html>
 <head>
 <link rel="stylesheet" href="../css/session.css">
+<link rel="stylesheet" href="../css/results.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
 <title>Session</title>
 </head>
 <body style = "width: 100%; overflow: hidden; background: #10255C; padding: 0; margin: 0">
@@ -16,12 +20,14 @@
         ROUND:01
     </div>
     <div id = "stop">
-        <button id = "stop-button" type = "button">
+
+        <button onclick="log_console()" id = "stop-button" type = "button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter2">
             <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="#10255C" class="bi bi-stop-circle" viewBox="0 0 16 16">
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
                 <path d="M5 6.5A1.5 1.5 0 0 1 6.5 5h3A1.5 1.5 0 0 1 11 6.5v3A1.5 1.5 0 0 1 9.5 11h-3A1.5 1.5 0 0 1 5 9.5z"/>
             </svg>
         </button>
+
     </div>
 </div>
 
@@ -70,13 +76,77 @@
         <span class="dot" id="dot4"></span>
         <span class="dot" id="testDot"></span>
     </div>
+
     <div>
-        <button id = "hit_spots" type = "button">
+        <button id = "hit_spots" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter1">
             >> upload hit_spots
         </button>
+        
+            <!-- modal for the advice thing  -->
+            <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">our_advice</h5>
+                    <!-- <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button> -->
+                    </div>
+                    <div class="modal-body">
+                        <!-- the target and the dots for advice -->
+                        <span class="dot" id="dot"></span>
+                        <img class = "center" id="target1" src="../assets/target3.svg" alt="Target">
+                    </div>
+                    <div class="modal-footer">
+                    <button onclick = "window.location.href='welcome.html';" type="button" class="btn left-button" data-bs-dismiss="modal">>> end current session</button>
+                    <button type="button" class="btn right-button">>> add new round</button>
+                    </div>
+                </div>
+                </div>
+            </div>
     </div>
 </div>
 
+    <!-- modal for the exit screen -->
+    <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">finishing_session?</h5>
+                <!-- <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button> -->
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Rounds Completed:
+                    </p>
+                    <p>
+                        Average Session:
+                    </p>
+                </div>
+                <div class="modal-footer">
+            
+                <button onclick = "window.location.href='welcome.html';" type="button" class="btn left-button" data-bs-dismiss="modal">>> exit session</button>
+                
+                <button type="button" class="btn right-button">>> continue session</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <script src="../js/home.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html> 
+
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
+
+<script>
+    function log_console() {
+        console.log("The button is pressed!");
+    }
+</script>
