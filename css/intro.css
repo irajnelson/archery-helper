@@ -69,12 +69,45 @@ body, html {
         margin: 1% 0%;
     }
     
-    /* #right
+    #right
     {
         position: absolute;
         left: 50%;
-        width: 50%; 
-    } */
+        width: 50%;
+    }
+
+    #loop
+    {
+        transform: rotate(-5deg);
+        position: absolute;
+        top: 45px;
+        left: 200px;
+
+        width: 300px;
+        height: 470px;   
+    }
+
+    #left-line
+    {
+        transform: rotate(100deg);
+        position: absolute;
+        top: 330px; /*280*/
+        left: 410px; /*360*/
+
+        width: 76px;
+        height: 140px;
+    }
+
+    #right-line
+    {
+        transform: rotate(10deg);
+        position: absolute;
+        top: 290px;
+        left: 498px;
+
+        width: 76px;
+        height: 140px;
+    }
 
     #caption
     {
