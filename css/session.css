@@ -13,17 +13,33 @@
     {
         color: #10255C;
         font-family: "Kode Mono", serif;
-        font-size: 80px;
+        font-size: 90px;
         font-style: normal;
         font-weight: 700;
         line-height: normal;
-        letter-spacing: 19.5px;
+        letter-spacing: 15px;
         
-        transform: rotate(270deg);
+        transform: rotate(270deg); /*based on the (0,0) ref point*/
+        
+        position: relative;
+        bottom: -72%;
+    }
 
-        position: absolute;
-        bottom: 250px;
-        
+    #stop
+    {
+        /*button in the center of the white rect*/
+        display: flex;
+        justify-content: center;
+
+        margin-top: -35%;
+
+    }
+
+    #stop-button
+    {
+        border-width: 0px !important;
+        padding: 0px !important;
+        background-color: white;
     }
 
     #left
@@ -114,7 +130,7 @@
         padding: 1% 1% !important;
     }
 
-    #arrow-num
+    .arrow-num
     {
         color: white;
         font-family: "Montserrat", serif;
@@ -124,6 +140,13 @@
 
         text-align: center;
         margin: 2% 0%;
+    }
+
+    #next-arrow
+    {
+        border-width: 0px !important;
+        padding: 0px !important;
+        background-color: #10255C;
     }
 
 }
