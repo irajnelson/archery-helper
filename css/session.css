@@ -1,12 +1,5 @@
 @layer{
-    /* #body
-    {
-        width: 100%;
-        overflow: hidden;
-        background: #10255C;
-        padding: 0px;
-        margin: 0px;
-    } */
+
     #round-side-rect
     {
         position: fixed;
@@ -58,28 +51,138 @@
     }
     img
     {
-        width: 80%;
-        height: 80%;
+        margin-top: -3%;
+        width: 75%;
+        height: 75%;
     }
 
-    .h2
-    {
-        color: #000;
-        font-family: "Kode Mono";
-        font-size: 80px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-    }
-
-    .h3
+    #left-title
     {
         color: #10255C;
-        font-family: "Kode Mono";
-        font-size: 80px;
+        font-family: "Kode Mono", serif;
+        font-size: 60px;
         font-style: normal;
         font-weight: 700;
         line-height: normal;
+
+        text-align: center;
+        margin-top: 5%;
     }
 
+    #right-title
+    {
+        color: white;
+        font-family: "Kode Mono", serif;
+        font-size: 60px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+
+        text-align: center;
+        margin-top: 5%;
+    }
+
+    #aimed_spot
+    {
+        background-color: #10255C;
+        color: white; /*text color of the button*/
+        font-family: "Kode Mono", serif !important; 
+        font-size: 20px !important;
+        font-style: normal !important;
+        font-weight: 400 !important;
+
+        display: block !important;
+        margin: auto !important;
+        border-radius: 15px !important;
+        border-width: 0px !important;
+        padding: 1% 1% !important;
+    }
+
+    #hit_spots
+    {
+        background-color:white;
+        color: #10255C;
+        font-family: "Kode Mono", serif !important;
+        font-size: 20px !important;
+        font-style: normal !important;
+        font-weight: 400 !important;
+        
+        display: block !important;
+        margin: auto !important;
+        border-radius: 15px !important;
+        border-width: 0px !important;
+        padding: 1% 1% !important;
+    }
+
+    #arrow-num
+    {
+        color: white;
+        font-family: "Montserrat", serif;
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 400;
+
+        text-align: center;
+        margin: 2% 0%;
+    }
+
+}
+
+@layer{
+    /*need to fix the reference points for the dots*/
+    #dot1 {
+        position:absolute;
+        width: 10px;
+        height: 10px;
+        background-color: orange;
+        border-radius: 50%; 
+        display: inline-block; 
+        top: 10000px;
+        left: 10000px;
+        
+    }
+    #dot2 {
+        position:absolute;
+        width: 10px;
+        height: 10px;
+        background-color: orange;
+        border-radius: 50%; 
+        display: inline-block; 
+        top: 10000px;
+        left: 10000px;
+        
+    }
+    #dot3 {
+        position:absolute;
+        width: 10px;
+        height: 10px;
+        background-color: orange;
+        border-radius: 50%; 
+        display: inline-block; 
+        top: 10000px;
+        left: 10000px;
+        
+    }
+    #dot4 {
+        position:absolute;
+        width: 10px;
+        height: 10px;
+        background-color: orange;
+        border-radius: 50%; 
+        display: inline-block; 
+        top: 10000px;
+        left: 10000px;
+        
+    }
+    #testDot {
+        position:absolute;
+        width: 10px;
+        height: 10px;
+        background-color: gray;
+        border-radius: 50%; 
+        display: inline-block; 
+        top: 10000px;
+        left: 10000px;
+        
+    }
 }
