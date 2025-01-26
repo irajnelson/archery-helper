@@ -1,0 +1,85 @@
+@layer{
+    /* #body
+    {
+        width: 100%;
+        overflow: hidden;
+        background: #10255C;
+        padding: 0px;
+        margin: 0px;
+    } */
+    #round-side-rect
+    {
+        position: fixed;
+        width: 14%; /*14, 86 = 43 + 43*/
+        top: 0;
+        height: 100vh;
+        background: white;
+    }
+
+    #round-text
+    {
+        color: #10255C;
+        font-family: "Kode Mono", serif;
+        font-size: 80px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: 19.5px;
+        
+        transform: rotate(270deg);
+
+        position: absolute;
+        bottom: 250px;
+        
+    }
+
+    #left
+    {
+        height: 100vh;
+        position: absolute;
+        left: 14%;
+        width: 43%; /*from the total screen*/
+        background: #8FDFFA;
+    }
+
+    #right
+    {
+        height: 100vh;
+        position: absolute;
+        left: 57%;
+        width: 43%; /*from the total screen*/
+    }
+
+    .target
+    {
+        /* margin-top: 10%; add back in when heading finished*/
+        display: flex;
+        justify-content: center;
+    }
+    img
+    {
+        width: 80%;
+        height: 80%;
+    }
+
+    .h2
+    {
+        color: #000;
+        font-family: "Kode Mono";
+        font-size: 80px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+    .h3
+    {
+        color: #10255C;
+        font-family: "Kode Mono";
+        font-size: 80px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+
+}

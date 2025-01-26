@@ -1,32 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="../css/home.css">
-<title>Page Title</title>
+<link rel="stylesheet" href="../css/session.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+<title>Session</title>
 </head>
-<body>
+<body style = "width: 100%; overflow: hidden; background: #10255C; padding: 0; margin: 0">
     
 
-<h1>iraj nelson</h1>
+<div id = "round-side-rect">
+    <!-- <div id = "round-text">
+        ROUND:01
+    </div> -->
+</div>
  
 
-<div>
-<img id="target1" src="../assets/target.svg" alt="Target">
-<span class="dot" id="dot1"></span>
-
+<!-- left target -->
+ 
+<div id = "left">
+    <h2>
+        AIMED_SPOT
+    </h2>
+    <div class = "target">
+        <img id="target1" src="../assets/target.svg" alt="Target">
+        <span class="dot" id="dot1"></span>
+    </div>
 </div>
 
-<img id="target2" src="../assets/target2.svg" alt="Target2">
-<div>
-<span class="dot" id="dot2"></span>
-<span class="dot" id="dot3"></span>
-<span class="dot" id="dot4"></span>
-<span class="dot" id="testDot"></span>
+<div id = "right">
+    <h3>
+        HIT_SPOTS
+    </h3>
+    <div class = "target">
+        <img id="target2" src="../assets/target2.svg" alt="Target2">
+        <span class="dot" id="dot2"></span>
+        <span class="dot" id="dot3"></span>
+        <span class="dot" id="dot4"></span>
+        <span class="dot" id="testDot"></span>
+    </div>
 </div>
 
-<button id="previousButton" type="button">Previous Arrow</button> 
+<!-- right target -->
+ <!-- <div>
+ </div> -->
+
+<!-- buttons -->
+<!--<button id="previousButton" type="button">Previous Arrow</button> 
 <button id="nextButton" type="button">Next Arrow</button> 
-<button id="doneButton" type="button">Done</button> 
+<button id="doneButton" type="button">Done</button> -->
 
 <script src="../js/home.js"></script>
 </body>
