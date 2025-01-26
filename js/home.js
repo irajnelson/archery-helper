@@ -62,6 +62,11 @@ const image2 = document.getElementById("target2");
 
 let currentSession = new Session([]);
 
+const leftObject = document.getElementById("round-side-rect");
+const leftOffset = leftObject.offsetWidth;
+
+const middleObject = document.getElementById("targetdiv");
+const middleOffset = middleObject.offsetWidth;
 
 const dotOffset = 5;
 
@@ -73,25 +78,29 @@ const dots_fired = [
 ];
 const testDot = document.getElementById("testDot");
 
-const previousButton = document.getElementById("previousButton");
-const nextButton = document.getElementById("nextButton");
-const doneButton = document.getElementById("doneButton");
+// const previousButton = document.getElementById("previousButton");
+const nextButton = document.getElementById("next-arrow");
+const doneButton = document.getElementById("hit_spots");
+
+const arrowCounter = document.getElementById("arrow-count");
 
 let arrow_aimed = [];
 let arrows_fired = [];
 let currentArrowIndex = 0;
 
 function getMousePos(e, image) {
-    // console.log("Client X:"+e.clientX);
-    // console.log("Client Y:"+e.clientY);
+    console.log("Client X:"+e.clientX);
+    console.log("Client Y:"+e.clientY);
     return [e.clientX-image.x, e.clientY-image.y];
 }
 
 
 image1.onclick = function(e){
-    console.log("image 1: " +image2.x + " " + image2.y);
+    let image1Rect = image1.getBoundingClientRect();
+    console.log("image 1: " + image1Rect.left + " " + image1Rect.top);
     arrow_aimed[0] = getMousePos(e, image1);
-    dot1.style.left = (arrow_aimed[0][0] + image1.x - dotOffset) + "px";
+    console.log("click x: " + arrow_aimed[0][0] + " click y: " + arrow_aimed[0][1]);
+    dot1.style.left = (arrow_aimed[0][0] + image1.x - leftOffset - dotOffset) + "px";
     dot1.style.top = (arrow_aimed[0][1] + image1.y - dotOffset) + "px";
     
 };
@@ -101,22 +110,24 @@ image2.onclick = function(e){
     arrows_fired[currentArrowIndex] = getMousePos(e, image2);
     console.log(arrows_fired[currentArrowIndex][0]);
     console.log(arrows_fired[currentArrowIndex][1]);
-    dots_fired[currentArrowIndex].style.left = (arrows_fired[currentArrowIndex][0] + image2.x - dotOffset) + "px";
+    dots_fired[currentArrowIndex].style.left = (arrows_fired[currentArrowIndex][0] + image2.x - leftOffset - middleOffset - dotOffset) + "px";
     dots_fired[currentArrowIndex].style.top = (arrows_fired[currentArrowIndex][1] + image2.y - dotOffset) + "px";
 };
 
-previousButton.onclick = function(){
-    if(currentArrowIndex == 0){
-        currentArrowIndex = 2
-        dots_fired[0].style.backgroundColor = "green";
-    } else {
-        dots_fired[currentArrowIndex--].style.backgroundColor = "green";
-    }
-    dots_fired[currentArrowIndex].style.backgroundColor = "blue";
-    console.log(currentArrowIndex);
-}
+// previousButton.onclick = function(){
+//     if(currentArrowIndex == 0){
+//         currentArrowIndex = 2
+//         dots_fired[0].style.backgroundColor = "green";
+//     } else {
+//         dots_fired[currentArrowIndex--].style.backgroundColor = "green";
+//     }
+//     dots_fired[currentArrowIndex].style.backgroundColor = "blue";
+//     console.log(currentArrowIndex);
+//     arrowCounter.innerHTML = currentArrowIndex+1;
+// }
 
 nextButton.onclick = function(){
+    console.log("Button clck");
     if(currentArrowIndex == 2){
         currentArrowIndex = 0
         dots_fired[2].style.backgroundColor = "green";
@@ -125,7 +136,9 @@ nextButton.onclick = function(){
     }
     dots_fired[currentArrowIndex].style.backgroundColor = "blue";
     console.log(currentArrowIndex);
+    arrowCounter.innerHTML = currentArrowIndex+1;
 }
+
 
 
 doneButton.onclick = function(){
