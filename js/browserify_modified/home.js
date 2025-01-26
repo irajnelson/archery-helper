@@ -1,3 +1,6 @@
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+
+},{}],2:[function(require,module,exports){
 const fs = require('fs');
 const sessions = require("../sessions");
 
@@ -176,3 +179,7 @@ doneButton.onclick = function(){
         alert("OOPSIE DAISY YOU DDINT PLACE THEM ALL? ? ? ?? ");
     }
 }
+
+},{"../sessions":3,"fs":1}],3:[function(require,module,exports){
+module.exports=[{"sessionNumber":0,"rounds":[{"roundNumber":0,"score":7,"aimSpot":[100,200],"arrowLocations":[[125,225],[150,250],[175,275]]},{"roundNumber":1,"score":8,"aimSpot":[101,201],"arrowLocations":[[126,226],[151,252],[176,276]]},{"roundNumber":2,"score":9,"aimSpot":[102,202],"arrowLocations":[[127,227],[151,252],[177,277]]}]},{"sessionNumber":1,"rounds":[{"roundNumber":0,"score":7,"aimSpot":[100,200],"arrowLocations":[[125,225],[150,250],[175,275]]},{"roundNumber":1,"score":8,"aimSpot":[101,201],"arrowLocations":[[126,226],[151,252],[176,276]]},{"roundNumber":2,"score":9,"aimSpot":[102,202],"arrowLocations":[[127,227],[151,252],[177,277]]}]}]
+},{}]},{},[2]);
