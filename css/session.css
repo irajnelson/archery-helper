@@ -153,11 +153,61 @@
         padding: 0px !important;
         background-color: #10255C;
     }
+
+    #target1
+    {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
+/* everything related to modals */
 @layer
 {
-    
+    .modal-title
+    {
+        color: #10255C;
+        font-family: "Kode Mono", serif;
+        font-size: 30px !important;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        /* margin-left: 1%; */
+    }
+
+    .left-button
+    {
+        position: absolute !important;
+        left: 2% !important;
+        background: #10255C !important;
+        color: white !important;
+        font-family: "Montserrat", serif !important;
+
+    }
+
+    .right-button
+    {
+        position: relative !important;
+        right: 1% !important;
+        background: #8FDFFA !important;
+        color: #10255C !important;
+        font-family: "Montserrat", serif !important;
+    }
+
+    .modal-body
+    {
+        color: #10255C;
+        font-family: "Montserrat", serif !important;
+        font-size: 20px !important;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
 }
 
 @layer{
