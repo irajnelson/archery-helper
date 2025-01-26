@@ -68,7 +68,7 @@ let currentSession = new Session([]);
 const leftObject = document.getElementById("round-side-rect");
 const leftOffset = leftObject.offsetWidth;
 
-const middleObject = document.getElementById("targetdiv");
+const middleObject = document.getElementById("left");
 const middleOffset = middleObject.offsetWidth;
 
 const dotOffset = 5;
