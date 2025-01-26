@@ -1,6 +1,4 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-
-},{}],2:[function(require,module,exports){
 const fs = require('fs');
 const sessions = require("../sessions");
 
@@ -35,11 +33,12 @@ class Session{
 }
 
 function addRound(currentSession, score, aimSpot, arrowLocations) {
-    currentSession.push(new Round(score, aimSpot, arrowLocations));
+    currentSession.rounds.push(new Round(score, aimSpot, arrowLocations));
 }
 
 function addSession(currentSession, lastRound) {
-    currentSession.push(lastRound);
+    
+    currentSession.rounds.push(lastRound);
     sessions.push(currentSession);
     fs.writeFileSync("./sessions.json", JSON.stringify(sessions), err => {
         // Checking for errors 
@@ -60,6 +59,9 @@ function addSession(currentSession, lastRound) {
 //     }
 // }
 
+const leftButton = document.getElementById("endSessionButton");
+const rightButton = document.getElementById("newRoundButton");
+
 const image1 = document.getElementById("target1");
 const image2 = document.getElementById("target2");
 
@@ -72,6 +74,8 @@ console.log("offet:"+leftOffset);
 const middleObject = document.getElementById("left");
 const middleOffset = middleObject.offsetWidth;
 console.log("offet2:"+middleOffset);
+
+var currentScore = 0;
 
 // Difference between the size of target and the margin in its container
 const resultOffset = 50;
@@ -170,7 +174,8 @@ doneButton.onclick = function(){
             averageY+=arrows_fired[i][1];
         }
 
-        console.log("Score:"+scoreArrows(arrows_fired));
+        currentScore = scoreArrows(arrows_fired);
+        console.log("Score:"+currentScore);
 
         averageX/=3;
         averageY/=3;
@@ -188,6 +193,18 @@ doneButton.onclick = function(){
     }
 }
 
+rightButton.onclick = function(){
+    location.reload();
+    addRound(currentSession, currentScore, arrow_aimed, arrows_fired);
+}
+leftButton.onclick = function(){
+    location.reload();
+    addRound(currentSession, currentScore, arrow_aimed, arrows_fired);
+    addSession(currentSession, currentSession.rounds.pop());
+    addRound(currentSession, currentScore, arrow_aimed, arrows_fired);
+    console.log("Sessions:"+sessions);
+}
+
 function scoreArrows(arrows){
     var score = [0,0,0];
     var radius = [0,0,0];
@@ -203,7 +220,8 @@ function scoreArrows(arrows){
     }
     return score;
 }
-
-},{"../sessions":3,"fs":1}],3:[function(require,module,exports){
+},{"../sessions":2,"fs":3}],2:[function(require,module,exports){
 module.exports=[{"sessionNumber":0,"rounds":[{"roundNumber":0,"score":7,"aimSpot":[100,200],"arrowLocations":[[125,225],[150,250],[175,275]]},{"roundNumber":1,"score":8,"aimSpot":[101,201],"arrowLocations":[[126,226],[151,252],[176,276]]},{"roundNumber":2,"score":9,"aimSpot":[102,202],"arrowLocations":[[127,227],[151,252],[177,277]]}]},{"sessionNumber":1,"rounds":[{"roundNumber":0,"score":7,"aimSpot":[100,200],"arrowLocations":[[125,225],[150,250],[175,275]]},{"roundNumber":1,"score":8,"aimSpot":[101,201],"arrowLocations":[[126,226],[151,252],[176,276]]},{"roundNumber":2,"score":9,"aimSpot":[102,202],"arrowLocations":[[127,227],[151,252],[177,277]]}]}]
-},{}]},{},[2]);
+},{}],3:[function(require,module,exports){
+
+},{}]},{},[1]);

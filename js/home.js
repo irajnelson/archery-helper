@@ -32,11 +32,11 @@ class Session{
 }
 
 function addRound(currentSession, score, aimSpot, arrowLocations) {
-    currentSession.push(new Round(score, aimSpot, arrowLocations));
+    currentSession.rounds.push(new Round(score, aimSpot, arrowLocations));
 }
 
 function addSession(currentSession, lastRound) {
-    currentSession.push(lastRound);
+    currentSession.rounds.push(lastRound);
     sessions.push(currentSession);
     fs.writeFileSync("./sessions.json", JSON.stringify(sessions), err => {
         // Checking for errors 
@@ -57,6 +57,9 @@ function addSession(currentSession, lastRound) {
 //     }
 // }
 
+const leftButton = document.getElementById("endSessionButton");
+const rightButton = document.getElementById("newRoundButton");
+
 const image1 = document.getElementById("target1");
 const image2 = document.getElementById("target2");
 
@@ -64,9 +67,16 @@ let currentSession = new Session([]);
 
 const leftObject = document.getElementById("round-side-rect");
 const leftOffset = leftObject.offsetWidth;
+console.log("offet:"+leftOffset);
 
 const middleObject = document.getElementById("left");
 const middleOffset = middleObject.offsetWidth;
+console.log("offet2:"+middleOffset);
+
+var currentScore = 0;
+
+// Difference between the size of target and the margin in its container
+const resultOffset = 50;
 
 const dotOffset = 5;
 
@@ -78,7 +88,7 @@ const dots_fired = [
 ];
 const testDot = document.getElementById("testDot");
 
-// const previousButton = document.getElementById("previousButton");
+const previousButton = document.getElementById("last-arrow");
 const nextButton = document.getElementById("next-arrow");
 const doneButton = document.getElementById("hit_spots");
 
@@ -114,17 +124,17 @@ image2.onclick = function(e){
     dots_fired[currentArrowIndex].style.top = (arrows_fired[currentArrowIndex][1] + image2.y - dotOffset) + "px";
 };
 
-// previousButton.onclick = function(){
-//     if(currentArrowIndex == 0){
-//         currentArrowIndex = 2
-//         dots_fired[0].style.backgroundColor = "green";
-//     } else {
-//         dots_fired[currentArrowIndex--].style.backgroundColor = "green";
-//     }
-//     dots_fired[currentArrowIndex].style.backgroundColor = "blue";
-//     console.log(currentArrowIndex);
-//     arrowCounter.innerHTML = currentArrowIndex+1;
-// }
+previousButton.onclick = function(){
+    if(currentArrowIndex == 0){
+        currentArrowIndex = 2
+        dots_fired[0].style.backgroundColor = "green";
+    } else {
+        dots_fired[currentArrowIndex--].style.backgroundColor = "green";
+    }
+    dots_fired[currentArrowIndex].style.backgroundColor = "blue";
+    console.log(currentArrowIndex);
+    arrowCounter.innerHTML = currentArrowIndex+1;
+}
 
 nextButton.onclick = function(){
     console.log("Button clck");
@@ -157,22 +167,55 @@ doneButton.onclick = function(){
         var averageY = 0;
 
         for(i = 0; i<3; i++){
+            console.log("First arrow is at x:"+arrows_fired[i][0]+" y:"+arrows_fired[i][1]);
             averageX+=arrows_fired[i][0];
             averageY+=arrows_fired[i][1];
         }
+
+        currentScore = scoreArrows(arrows_fired);
+        console.log("Score:"+currentScore);
 
         averageX/=3;
         averageY/=3;
 
         let aimOffsetX = 200-averageX;
         let aimOffsetY = 200-averageY;
-
-        testDot.style.left = (arrow_aimed[0][0] + aimOffsetX + image1.x - dotOffset) + "px";
-        testDot.style.top = (arrow_aimed[0][1] + aimOffsetY + image1.y - dotOffset) + "px";
-        console.log(testDot.style.left + " E " + testDot.style.top);
-        console.log(aimOffsetX + " A " + aimOffsetY);
+        console.log("placing at "+(arrow_aimed[0][0] + aimOffsetX + resultOffset - dotOffset));
+        testDot.style.left = (arrow_aimed[0][0] + aimOffsetX + resultOffset - dotOffset) + "px";
+        testDot.style.top = (arrow_aimed[0][1] + aimOffsetY - dotOffset) + "px";
+        // console.log(testDot.style.left + " E " + testDot.style.top);
+        // console.log(aimOffsetX + " A " + aimOffsetY);
 
     } else {
-        alert("OOPSIE DAISY YOU DDINT PLACE THEM ALL? ? ? ?? ");
+        alert("Oops, you didn't place all the arrows!");
     }
+}
+
+rightButton.onclick = function(){
+    location.reload();
+    addRound(currentSession, currentScore, arrow_aimed, arrows_fired);
+}
+leftButton.onclick = function(){
+    console.log("WORKED");
+    location.reload();
+    addRound(currentSession, currentScore, arrow_aimed, arrows_fired);
+    addSession(currentSession, currentSession.rounds.pop());
+    addRound(currentSession, currentScore, arrow_aimed, arrows_fired);
+    console.log(sessions);
+}
+
+function scoreArrows(arrows){
+    var score = [0,0,0];
+    var radius = [0,0,0];
+    for(var i = 0; i<3; i++){
+        var x = arrows[i][0]-200;
+        var y = arrows[i][1]-200;
+
+        radius[i] = Math.sqrt(x*x + y*y);
+        
+    }
+    for(var i = 0; i<3; i++){
+        score[i] = 10 - Math.floor(radius[i]/17);
+    }
+    return score;
 }
