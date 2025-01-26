@@ -67,9 +67,14 @@ let currentSession = new Session([]);
 
 const leftObject = document.getElementById("round-side-rect");
 const leftOffset = leftObject.offsetWidth;
+console.log("offet:"+leftOffset);
 
 const middleObject = document.getElementById("left");
 const middleOffset = middleObject.offsetWidth;
+console.log("offet2:"+middleOffset);
+
+// Differene between the size of target and the margin in its container
+const resultOffset = 50;
 
 const dotOffset = 5;
 
@@ -160,6 +165,7 @@ doneButton.onclick = function(){
         var averageY = 0;
 
         for(i = 0; i<3; i++){
+            console.log("First arrow is at x:"+arrows_fired[i][0]+" y:"+arrows_fired[i][1]);
             averageX+=arrows_fired[i][0];
             averageY+=arrows_fired[i][1];
         }
@@ -169,14 +175,14 @@ doneButton.onclick = function(){
 
         let aimOffsetX = 200-averageX;
         let aimOffsetY = 200-averageY;
-
-        testDot.style.left = (arrow_aimed[0][0] + aimOffsetX + image1.x - dotOffset) + "px";
-        testDot.style.top = (arrow_aimed[0][1] + aimOffsetY + image1.y - dotOffset) + "px";
-        console.log(testDot.style.left + " E " + testDot.style.top);
-        console.log(aimOffsetX + " A " + aimOffsetY);
+        console.log("placing at "+(arrow_aimed[0][0] + aimOffsetX + resultOffset - dotOffset));
+        testDot.style.left = (arrow_aimed[0][0] + aimOffsetX + resultOffset - dotOffset) + "px";
+        testDot.style.top = (arrow_aimed[0][1] + aimOffsetY - dotOffset) + "px";
+        // console.log(testDot.style.left + " E " + testDot.style.top);
+        // console.log(aimOffsetX + " A " + aimOffsetY);
 
     } else {
-        alert("OOPSIE DAISY YOU DDINT PLACE THEM ALL? ? ? ?? ");
+        alert("Oops, you didn't place all the arrows!");
     }
 }
 
