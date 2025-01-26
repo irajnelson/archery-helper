@@ -1,0 +1,108 @@
+body, html {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100%; 
+    width: 100%;
+    overflow: hidden;
+    background-color: #8FDFFA;
+    padding: 0px;
+    margin: 0px;
+    font-family: Kode Mono, monospace;
+}
+
+@layer {
+    #main-body {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        z-index: 1;
+    }
+    
+    #archery-banner {
+        display: flex;
+        background-color: whitesmoke;
+        vertical-align: top;
+        position: fixed;
+        width: 100%;
+        z-index:1;
+        height: 60px;
+        padding-left: 10px;
+        align-items: center;
+    }
+    
+    #archery-banner-words {
+        margin: 0px;
+        color: #10255C;
+    }
+    
+    #left-side {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        align-items: center;
+    }
+
+    #right-side {
+        display: flex;
+        flex-direction: column;
+        width: 45%;
+        align-items: center;
+    }
+    
+    h1 {
+        color: #10255C;
+        font-size: 90px;
+        margin-top: 100px;
+        margin-bottom: 30px;
+        margin-left: 80px;
+        align-self: flex-start;
+    }
+    
+    #links, #scores {
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+        margin-left: 80px;
+        margin-bottom: 20px;
+    }
+    
+    a {
+        color: #10255C;
+        text-decoration: none;
+        padding: 5px;
+    }
+    
+    
+    h4 {
+        color: whitesmoke;
+        font-size: 40px;
+        margin-top: 120px;
+        margin-bottom: 5px;
+    }
+
+    h3 {
+        color:whitesmoke;
+    }
+
+    img {
+        width: 400px;
+        height: 400px;
+    }
+    
+}
+
+@layer {
+    #skewed-box {
+        background-color: #10255C;
+        position: absolute;
+        top: -150px;
+        width: 500px;
+        height: 2500px;
+        left: 700px;
+        padding: 100px;
+        transform: skew(10deg, -65deg);
+    }
+    
+}
