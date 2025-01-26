@@ -1,6 +1,7 @@
 const fs = require('fs');
 const sessions = require("../sessions");
 
+
 class Round{
     constructor(score, aimSpot, arrowLocations){
         this.score = score;
